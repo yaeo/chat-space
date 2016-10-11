@@ -1,3 +1,6 @@
+## users table
+add_index :users, :name
+
 | name | pass  | email  |
 | :------------- | :------------- | :------------- |
 | null: flase    | null: flase    | null: flase, unique: true     |
