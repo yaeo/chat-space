@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root  'groups/index' => 'groups#index'
+  root  'groups#index'
 end
