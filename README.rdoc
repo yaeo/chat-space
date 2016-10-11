@@ -1,28 +1,29 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| name | pass  | email  |
+| :------------- | :------------- | :------------- |
+| null: flase    | null: flase    | null: flase, unique: true     |
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## groups table
+| name |
+| :------------- |
+| null: flase    |
+
+## members table
+add_index :members, [:user_id, group_id]
+
+| user_id | group_id  |
+| :------------- | :------------- |
+| null: flase    | null: flase    |
+
+## messages table
+add_index :members, [:user_id]
+add_index :members, [:group_id]
+
+| user_id | group_id  | body  | image_id  |
+| :------------- | :------------- | :------------- | :------------- |
+| null: flase    | null: flase    | null: flase    | null: flase    |
+
+## images table
+| url |
+| :------------- |
+| null: flase    |
