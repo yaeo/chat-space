@@ -1,0 +1,51 @@
+%header
+
+.content
+  .header
+    .alert
+      %p{ class: "alert__success" }チャットグループが作成されました。
+  .sidemenu
+    .user
+      %ul{ class: "user-info" }
+        %li{ class: "user-info__name" }タロウ
+        %li{ class: "user-info__icon" }
+          = fa_icon "cog"
+        %li{ class: "user-info__icon" }
+          = fa_icon "edit"
+    .group
+      %ul{ class: "group-info" }
+        %li{ class: "group-info__name" }chat spaceグループ
+        %li{ class: "group-info__new-message" }最新のメッセージfuga
+      %ul{ class: "group-info" }
+        %li{ class: "group-info__name" }pictweetグループ
+        %li{ class: "group-info__new-message" }最新のメッセージhoge
+      %ul{ class: "group-info" }
+        %li{ class: "group-info__name" }MOOVIEtグループ
+        %li{ class: "group-info__new-message" }最新のメッセージneko
+  .main.clearfix
+    .nav
+      %ul{ class: "nav-menu" }
+        %li{ class: "nav-menu__group-name" }chat spaceグループ
+        %ul{ class: "nav-menu__members" }
+          %li{ class: "nav-menu__menbers__name" }members: テストユーザータロウ
+      .edit-group Edit
+    .message
+      %ul{ class: "message-detail" }
+        %li{ class: "message-detail__name" }タロウ
+        %li{ class: "message-detail__date clearfix" }2016/10/12 06:59:18
+        %li{ class: "message-detail__body" }へろー！わーるど！
+      %ul{ class: "message-detail" }
+        %li{ class: "message-detail__name" }ジロウ
+        %li{ class: "message-detail__date clearfix" }2016/10/12 06:59:18
+        %li{ class: "message-detail__body" }渋谷渋谷渋谷！
+      %ul{ class: "message-detail" }
+        %li{ class: "message-detail__name" }タロウ
+        %li{ class: "message-detail__date clearfix" }2016/10/12 06:59:18
+        %li{ class: "message-detail__body" }あついさむい
+    .chat
+      %form{ class: "chat-form" }
+        %textarea{ name: "body", class: "chat-body" }
+        %label{ class: "upload-image" }
+          = fa_icon "image"
+          %input{ type: "file", name: "image", class: "image" }
+        %input{ type: "submit", value: "SEND", class: "submit" }
