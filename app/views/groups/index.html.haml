@@ -1,3 +1,4 @@
+
 .sidemenu
   .user
     .user__name チャットタロウ
@@ -41,6 +42,8 @@
       .message__body 好きなお茶は？
   .footer
     .footer__chat
+      - if flash[:error].present?
+        = flash[:error]
       = form_for(@message, html: {class: "message-form clearfix"}) do |f|
         .message-input
           = f.text_area :body, class: "message-input__text"

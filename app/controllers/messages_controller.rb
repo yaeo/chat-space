@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   def create
-    Message.create(create_message_params)
+    @message = Message.create(create_message_params)
+    flash[:error] = @message.errors.full_messages
     redirect_to root_path
   end
 
