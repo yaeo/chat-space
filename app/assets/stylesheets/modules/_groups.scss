@@ -140,8 +140,10 @@ a {
           float: left;
           position: relative;
           &__text {
-            width: 800px;
+            width: 750px;
             height: 50px;
+            line-height: 50px;
+            padding-left: 10px;
             resize: none;
             border: none;
           }
