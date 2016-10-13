@@ -41,10 +41,14 @@
       .message__body 好きなお茶は？
   .footer
     .footer__chat
-      %form.message-form.clearfix
-        .message-input
-          %textarea{name: "message", class: "message-input__text"}
-          %label.image
-            = fa_icon "image"
-            %input{type: "file", name: "image", class: "message-input__image"}
-        %input{type: "submit", value: "SEND", class: "message-submit clearfix"}
+      .message-input
+        = form_for(@message) do |f|
+          = f.text_area :body, class: "message-input__text"
+          = f.submit
+      -# %form.message-form.clearfix
+      -#   .message-input
+      -#     %textarea{name: "message", class: "message-input__text"}
+      -#     %label.image
+      -#       = fa_icon "image"
+      -#       %input{type: "file", name: "image", class: "message-input__image"}
+      -#   %input{type: "submit", value: "SEND", class: "message-submit clearfix"}
