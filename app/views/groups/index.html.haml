@@ -1,50 +1,51 @@
-.sidemenu
-  .user
-    .user__name チャットタロウ
-    .user__edit
-      %a{href: "#"}
-        =fa_icon "edit"
-      %a{href: "#"}
-        =fa_icon "cog"
-  %ul.groups
-    %li.group
-      .group__name チャットスペース
-      .group__message 最新の投稿です
-    %li.group
-      .group__name ムービーーアップ
-      .group__message 最新の投稿です
-    %li.group
-      .group__name ピクツイーート
-      .group__message 最新の投稿です
-.main
-  .header.clearfix
-    .header__group
-      .header__group__name チャットスペース
-      .header__group__members Members: チャットタロウ
-    .header__edit
-      %a{href: "#"}Edit
-  %ul.messages
-    %li.message
-      .message__header.clearfix
-        .message__header__name チャットタロウ
-        .message__header__date 16/10/02 06:24:11
-      .message__body 抹茶がすき
-    %li.message
-      .message__header.clearfix
-        .message__header__name ジロウ
-        .message__header__date 16/10/02 06:24:11
-      .message__body 紅茶がすきです
-    %li.message
-      .message__header.clearfix
-        .message__header__name サブロウ
-        .message__header__date 16/10/02 06:24:11
-      .message__body 好きなお茶は？
-  .footer
-    .footer__chat
-      %form.message-form.clearfix
-        .message-input
-          %textarea{name: "message", class: "message-input__text"}
-          %label.image
-            = fa_icon "image"
-            %input{type: "file", name: "image", class: "message-input__image"}
-        %input{type: "submit", value: "SEND", class: "message-submit clearfix"}
+.chat
+  .sidemenu
+    .user
+      .user__name チャットタロウ
+      .user__edit
+        %a{href: "#"}
+          =fa_icon "edit"
+        %a{href: "#"}
+          =fa_icon "cog"
+    %ul.groups
+      %li.group
+        .group__name チャットスペース
+        .group__message 最新の投稿です
+      %li.group
+        .group__name ムービーーアップ
+        .group__message 最新の投稿です
+      %li.group
+        .group__name ピクツイーート
+        .group__message 最新の投稿です
+  .main
+    .header.clearfix
+      .header__group
+        .header__group__name チャットスペース
+        .header__group__members Members: チャットタロウ
+      .header__edit
+        %a{href: "#"}Edit
+    %ul.messages
+      %li.message
+        .message__header.clearfix
+          .message__header__name チャットタロウ
+          .message__header__date 16/10/02 06:24:11
+        .message__body 抹茶がすき
+      %li.message
+        .message__header.clearfix
+          .message__header__name ジロウ
+          .message__header__date 16/10/02 06:24:11
+        .message__body 紅茶がすきです
+      %li.message
+        .message__header.clearfix
+          .message__header__name サブロウ
+          .message__header__date 16/10/02 06:24:11
+        .message__body 好きなお茶は？
+    .footer
+      .footer__chat
+        %form.message-form.clearfix
+          .message-input
+            %textarea{name: "message", class: "message-input__text"}
+            %label.image
+              = fa_icon "image"
+              %input{type: "file", name: "image", class: "message-input__image"}
+          %input{type: "submit", value: "SEND", class: "message-submit clearfix"}
