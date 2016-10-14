@@ -1,0 +1,29 @@
+.edit
+  .edit__inner
+    .edit__left
+      .edit__left__header
+        .edit__left__header_title Edit Account
+        .edit__left__header_discription アカウント編集
+      .edit__left_content
+        =link_to "ログアウト", destroy_user_session_path, class: "btn"
+        =link_to "トップページに戻る", root_path, class: "btn"
+    .edit__right
+      .edit__right__content
+        =form_for @user do |f|
+          .form
+            =f.label "Name", class: "label"
+            =f.text_field :name, class: "field"
+          .form
+            =f.label "メールアドレス", class: "label"
+            =f.text_field :email, class: "field"
+          .form
+            =f.label "パスワード", class: "label"
+            =f.password_field :password, class: "field"
+          .form
+            =f.label "確認用パスワード", class: "label"
+            =f.password_field :password_confirmation, class: "field"
+          .form
+            =f.label "現在のパスワード", class: "label"
+            =f.password_field :password, class: "field"
+          .form
+            =f.submit value: "Update", class: "submit"
