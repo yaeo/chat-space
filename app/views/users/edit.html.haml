@@ -29,6 +29,6 @@
             .form__label
               = f.label "現在のパスワード", class: "label"
               %i (変更には現在のパスワードの入力が必要です)
-            .form__field= f.password_field :password, class: "input"
+            .form__field= f.password_field :current_password, class: "input"
           .form
             =f.submit value: "Update", class: "submit"
