@@ -5,8 +5,10 @@
       .user__edit
         %a{href: "#"}
           =fa_icon "edit"
-        %a{href: "#"}
+        -# 暫定的に設定ボタンをログアウトボタンにしている
+        =link_to destroy_user_session_path, method: :delete do
           =fa_icon "cog"
+
     %ul.groups
       %li.group
         .group__name チャットスペース
