@@ -3,7 +3,7 @@
     .user
       .user__name チャットタロウ
       .user__edit
-        %a{href: "#"}
+        =link_to edit_user_path(current_user) do
           =fa_icon "edit"
         -# 暫定的に設定ボタンをログアウトボタンにしている
         =link_to destroy_user_session_path, method: :delete do
