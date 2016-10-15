@@ -10,7 +10,9 @@
         =link_to "トップページに戻る", root_path, class: "btn"
     .right
       .right__content
-        =flash[:error]
+        - if flash[:errors].present?
+          - flash[:errors].each do |msg|
+            %p=msg
         =form_for current_user do |f|
           .form
             .form__label= f.label :name, "Name", class: "label"

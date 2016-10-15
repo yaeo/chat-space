@@ -7,9 +7,7 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       redirect_to edit_user_url(current_user)
-      current_user.errors.full_messages.each do |message|
-        flash[:error] = message
-      end
+      flash[:errors] = current_user.errors.full_messages
     end
   end
 
