@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe MessagesController do
+
+  before do
+    @user = create(:user)
+    sign_in @user
+  end
+
   describe 'POST #create' do
 
     let!(:message) { build(:message) }
