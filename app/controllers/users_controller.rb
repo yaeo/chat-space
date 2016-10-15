@@ -3,8 +3,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update_with_password(user_params)
-    redirect_to root_url
+    if current_user.update_with_password(user_params)
+      redirect_to root_url
+    else
+      redirect_to edit_user_url(current_user)
+      current_user.errors.full_messages.each do |message|
+        flash[:error] = message
+      end
+    end
   end
 
   private
