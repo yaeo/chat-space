@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe MessagesController do
+
+  before do
+    @user = create(:user)
+    sign_in @user
+  end
+
   describe 'POST #create' do
 
     let!(:message) { build(:message) }
@@ -36,7 +42,7 @@ describe MessagesController do
     #メッセージの作成に失敗した場合はflsh[:error]にメッセージが保存される
     it 'flash[:empty] is set when fail to post a message' do
       post :create, params: { message: invalid_message_params }
-      expect(flash[:error]).not_to be_empty
+      expect(flash[:errors]).not_to be_empty
     end
   end
 

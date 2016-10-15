@@ -11,7 +11,7 @@ describe Message do
     it 'is invalid without a message body' do
       message = build(:message, body: "")
       message.valid?
-      expect(message.errors[:body]).to include("can't be blank")
+      expect(message.errors.full_messages).to include("メッセージを入力してください。")
     end
   end
 end
