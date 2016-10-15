@@ -3,6 +3,7 @@ ja:
     email: メールアドレス
     password: パスワード
     current_password: 現在のパスワード
+    password_confirmation: 確認用パスワード
     group_id: グループ名
     user: ユーザー
   date:
