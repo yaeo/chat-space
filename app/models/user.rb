@@ -3,6 +3,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   #association
-  has_many :groups, through: :members, sorce: :group
+  has_many :groups, through: :members, source: :group
   has_many :members
 end
