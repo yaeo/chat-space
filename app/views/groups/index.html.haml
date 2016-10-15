@@ -8,7 +8,6 @@
         -# 暫定的に設定ボタンをログアウトボタンにしている
         =link_to edit_user_path(current_user) do
           =fa_icon "cog"
-
     %ul.groups
       %li.group
         .group__name チャットスペース
@@ -44,64 +43,12 @@
         .message__body 好きなお茶は？
     .footer
       .footer__chat
-        %form.message-form.clearfix
+        - if flash[:errors].present?
+          = flash[:errors]
+        = form_for(@message, html: {class: "message-form clearfix"}, method: "post") do |f|
           .message-input
-            %textarea{name: "message", class: "message-input__text"}
+            = f.text_area :body, class: "message-input__text"
             %label.image
               = fa_icon "image"
-              %input{type: "file", name: "image", class: "message-input__image"}
-          %input{type: "submit", value: "SEND", class: "message-submit clearfix"}
-=======
-
-.sidemenu
-  .user
-    .user__name チャットタロウ
-    .user__edit
-      %a{href: "#"}
-        =fa_icon "edit"
-      %a{href: "#"}
-        =fa_icon "cog"
-  %ul.groups
-    %li.group
-      .group__name チャットスペース
-      .group__message 最新の投稿です
-    %li.group
-      .group__name ムービーーアップ
-      .group__message 最新の投稿です
-    %li.group
-      .group__name ピクツイーート
-      .group__message 最新の投稿です
-.main
-  .header.clearfix
-    .header__group
-      .header__group__name チャットスペース
-      .header__group__members Members: チャットタロウ
-    .header__edit
-      %a{href: "#"}Edit
-  %ul.messages
-    %li.message
-      .message__header.clearfix
-        .message__header__name チャットタロウ
-        .message__header__date 16/10/02 06:24:11
-      .message__body 抹茶がすき
-    %li.message
-      .message__header.clearfix
-        .message__header__name ジロウ
-        .message__header__date 16/10/02 06:24:11
-      .message__body 紅茶がすきです
-    %li.message
-      .message__header.clearfix
-        .message__header__name サブロウ
-        .message__header__date 16/10/02 06:24:11
-      .message__body 好きなお茶は？
-  .footer
-    .footer__chat
-      - if flash[:error].present?
-        = flash[:error]
-      = form_for(@message, html: {class: "message-form clearfix"}) do |f|
-        .message-input
-          = f.text_area :body, class: "message-input__text"
-          %label.image
-            = fa_icon "image"
-            = f.file_field :image, class: "message-input__image"
-        = f.submit value: "Send", class: "message-submit", data: {disable_with: "Send"}
+              = f.file_field :image, class: "message-input__image"
+          = f.submit value: "Send", class: "message-submit", data: {disable_with: "Send"}
