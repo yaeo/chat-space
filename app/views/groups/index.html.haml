@@ -1,4 +1,7 @@
 .chat
+  - if flash[:errors].present?
+    - flash[:errors].each do |msg|
+      %p.error= msg
   .sidemenu
     .user
       .user__name チャットタロウ
@@ -43,8 +46,6 @@
         .message__body 好きなお茶は？
     .footer
       .footer__chat
-        - if flash[:errors].present?
-          = flash[:errors]
         = form_for(@message, html: {class: "message-form clearfix"}, method: "post") do |f|
           .message-input
             = f.text_area :body, class: "message-input__text"

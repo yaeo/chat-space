@@ -6,6 +6,7 @@ ja:
     password_confirmation: 確認用パスワード
     group_id: グループ名
     user: ユーザー
+    body: メッセージ
   date:
     abbr_day_names:
     - 日
