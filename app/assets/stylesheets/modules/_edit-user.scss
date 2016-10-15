@@ -1,0 +1,75 @@
+body {
+  height: 100%;
+  background-color: #fafafa;
+  .edit {
+    .edit__inner {
+      width: 960px;
+      background-color: #fff;
+      border: 1px solid #eee;
+      margin: 60px auto;
+      padding: 60px 60px;
+      .left{
+        width: 50%;
+        float: left;
+        &__header {
+          hr {
+            width: 60px;
+            margin-left: 0px;
+            color: #fff;
+          }
+          .title {
+            margin: 0;
+            font-size: 40px;
+            font-weight: 100;
+          }
+          .discription {
+            margin-bottom: 10px;
+            font-weight: 100;
+          }
+        }
+        &__content {
+          margin: 50px 0;
+          .btn {
+            font-size: 15px;
+            color: #fff;
+            background-color: lightgray;
+            padding: 20px 25px;
+          }
+        }
+      }
+      .right {
+        width: 50%;
+        float: left;
+        &__content {
+          .form {
+            margin-bottom: 10px;
+            &__label {
+              padding: 10px 0px;
+              i {
+                font-size: 11px;
+              }
+              .label{
+                font-size: 14px;
+                font-weight: 100;
+              }
+            }
+            &__field {
+              .input {
+                width: 100%;
+                padding: 10px;
+              }
+            }
+            .submit {
+              font-size: 15px;
+              background-color: skyblue;
+              padding: 20px 25px;
+              color: #fff;
+              border: none;
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
