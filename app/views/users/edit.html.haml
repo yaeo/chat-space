@@ -6,10 +6,14 @@
         %hr
         %h5.discription アカウント編集
       .left__content
-        =link_to "ログアウト", destroy_user_session_path, class: "btn"
+        =link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn"
         =link_to "トップページに戻る", root_path, class: "btn"
     .right
       .right__content
+        - if flash[:errors].present?
+          .flash
+            - flash[:errors].each do |msg|
+              %p.flash__message=msg
         =form_for current_user do |f|
           .form
             .form__label= f.label :name, "Name", class: "label"

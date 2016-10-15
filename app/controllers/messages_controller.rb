@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
       redirect_to root_path
     else
       #メッセージの保存に失敗したときの処理
-      flash[:error] = @message.errors.full_messages
+      flash[:errors] = @message.errors.full_messages
       redirect_to root_path
     end
   end
