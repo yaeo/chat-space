@@ -28,8 +28,18 @@ a {
 }
 
 .chat {
+  width: 100%;
   min-width: 980px;
   height: 100%
+}
+
+.flash {
+  border: 2px solid pink;
+  background-color: pink;
+  text-align: center;
+  .error {
+    color: #fff;
+  }
 }
 
 .sidemenu {
