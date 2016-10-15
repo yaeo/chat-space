@@ -10,7 +10,7 @@
         =link_to "トップページに戻る", root_path, class: "btn"
     .right
       .right__content
-        =form_for @user do |f|
+        =form_for current_user do |f|
           .form
             .form__label= f.label "Name", class: "label"
             .form__field= f.text_field :name, class: "input"
