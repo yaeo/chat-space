@@ -3,11 +3,11 @@ class MessagesController < ApplicationController
     @message = Message.new(create_message_params)
     if @message.save
       #メッセージの保存に成功したときの処理
-      redirect_to root_path
+      redirect_to root_url
     else
       #メッセージの保存に失敗したときの処理
-      flash[:error] = @message.errors.full_messages
-      redirect_to root_path
+      flash[:errors] = @message.errors.full_messages
+      redirect_to root_url
     end
   end
 
