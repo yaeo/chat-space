@@ -4,4 +4,5 @@ class User < ApplicationRecord
 
   #association
   has_many :groups, through: :members, sorce: :group
+  has_many :members
 end
