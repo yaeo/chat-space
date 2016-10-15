@@ -41,6 +41,13 @@ body {
         width: 50%;
         float: left;
         &__content {
+          .flash {
+            border: 1px solid pink;
+            padding: 0px 10px;
+            &__message {
+              font-size: 12px;
+            }
+          }
           .form {
             margin-bottom: 10px;
             &__label {
@@ -55,7 +62,7 @@ body {
             }
             &__field {
               .input {
-                width: 100%;
+                width: 455px;
                 padding: 10px;
               }
             }

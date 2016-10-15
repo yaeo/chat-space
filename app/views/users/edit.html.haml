@@ -11,8 +11,9 @@
     .right
       .right__content
         - if flash[:errors].present?
-          - flash[:errors].each do |msg|
-            %p=msg
+          .flash
+            - flash[:errors].each do |msg|
+              %p.flash__message=msg
         =form_for current_user do |f|
           .form
             .form__label= f.label :name, "Name", class: "label"
