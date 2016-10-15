@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def update
     current_user.update_with_password(user_params)
-    redirect_to root_path
+    redirect_to root_url
   end
 
   private
