@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe GroupsController do
+
+  before do
+    @user = create(:user)
+    sign_in @user
+  end
+
   describe 'GET #index' do
     #indexテンプレートが表示されるかどうか
     it 'render the :index template' do
