@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update_with_password(user_params)
+      flash[:success] = "ユーザー情報を編集しました :)"
       redirect_to root_url
     else
       redirect_to edit_user_url(current_user)

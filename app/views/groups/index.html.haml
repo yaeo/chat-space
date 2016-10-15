@@ -1,8 +1,11 @@
 .chat
   - if flash[:errors].present?
-    .flash
+    .flash-error
       - flash[:errors].each do |msg|
         %p.error= msg
+  - if flash[:success].present?
+    .flash-success
+      %p.success= flash[:success]
   .sidemenu
     .user
       .user__name チャットタロウ
