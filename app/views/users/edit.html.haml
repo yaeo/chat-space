@@ -1,0 +1,34 @@
+.edit
+  .edit__inner.clearfix
+    .left
+      .left__header
+        %h2.title Edit Account
+        %hr
+        %h5.discription アカウント編集
+      .left__content
+        =link_to "ログアウト", destroy_user_session_path, class: "btn"
+        =link_to "トップページに戻る", root_path, class: "btn"
+    .right
+      .right__content
+        =form_for current_user do |f|
+          .form
+            .form__label= f.label :name, "Name", class: "label"
+            .form__field= f.text_field :name, class: "input"
+          .form
+            .form__label= f.label :email, "メールアドレス", class: "label"
+            .form__field= f.text_field :email, class: "input"
+          .form
+            .form__label
+              = f.label :password, "パスワード", class: "label"
+              %i (変更したくない場合は、空白にししておいてください)
+            .form__field= f.password_field :password, class: "input"
+          .form
+            .form__label= f.label :password_confirmation, "確認用パスワード", class: "label"
+            .form__field= f.password_field :password_confirmation, class: "input"
+          .form
+            .form__label
+              = f.label :current_password, "現在のパスワード", class: "label"
+              %i (変更には現在のパスワードの入力が必要です)
+            .form__field= f.password_field :current_password, class: "input"
+          .form
+            =f.submit value: "Update", class: "submit"
