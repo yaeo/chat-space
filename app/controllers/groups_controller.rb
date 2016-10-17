@@ -8,11 +8,14 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.create(group_params)
-    redirect_to root_url
-    # else
-    #   #失敗したとき
-    # end
+    @group = Group.new(group_params)
+    if @group.save
+      flash[:success] = "yay! 新しいグループを作成しました :)"
+      redirect_to root_url
+    else
+      flash[:errors] = current_user.errors.full_messages
+      redirect_to new_group_url
+    end
   end
 
   def edit

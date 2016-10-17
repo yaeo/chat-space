@@ -1,4 +1,8 @@
 .chat-group-form
+  - if flash[:errors].present?
+    .flash
+      - flash[:errors].each do |msg|
+        %p.flash__message=msg
   %h1 新規チャットグループ
   =form_for @group, class: "new_chat_group", id: "new_chat_group" do |f|
     .chat-group-form__field.clearfix
