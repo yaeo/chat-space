@@ -24,26 +24,25 @@
   .main
     .header.clearfix
       .header__group
-        .header__group__name チャットスペース
-        .header__group__members Members: チャットタロウ
+        .header__group__name
+        .header__group__members
       .header__edit
-        %a{href: "#"}Edit
     %ul.messages
       %li.message
         .message__header.clearfix
-          .message__header__name チャットタロウ
-          .message__header__date 16/10/02 06:24:11
-        .message__body 抹茶がすき
-      %li.message
-        .message__header.clearfix
-          .message__header__name ジロウ
-          .message__header__date 16/10/02 06:24:11
-        .message__body 紅茶がすきです
-      %li.message
-        .message__header.clearfix
-          .message__header__name サブロウ
-          .message__header__date 16/10/02 06:24:11
-        .message__body 好きなお茶は？
+          .message__header__name
+          .message__header__date
+        .message__body
+      -# %li.message
+      -#   .message__header.clearfix
+      -#     .message__header__name ジロウ
+      -#     .message__header__date 16/10/02 06:24:11
+      -#   .message__body 紅茶がすきです
+      -# %li.message
+      -#   .message__header.clearfix
+      -#     .message__header__name サブロウ
+      -#     .message__header__date 16/10/02 06:24:11
+      -#   .message__body 好きなお茶は？
     .footer
       .footer__chat
         = form_for(@message, html: {class: "message-form clearfix"}, method: "post") do |f|
