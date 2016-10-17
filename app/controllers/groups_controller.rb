@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
       flash[:success] = "yay! 新しいグループを作成しました :)"
       redirect_to root_url
     else
-      flash[:errors] = current_user.errors.full_messages
+      flash[:errors] = @group.errors.full_messages
       redirect_to new_group_url
     end
   end
