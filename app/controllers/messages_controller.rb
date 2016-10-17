@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def create
-    @message = Message.new(create_message_params)
+    @message = Message.new(message_params)
     if @message.save
       #メッセージの保存に成功したときの処理
       redirect_to root_path
@@ -12,7 +12,8 @@ class MessagesController < ApplicationController
   end
 
   private
-    def create_message_params
-      params.require(:message).permit(:body)
+    def message_params
+      #todo group_idを選択しているグループのものを入れるようにする
+      params.require(:message).permit(:body).merge(user_id: current_user.id, group_id: "1")
     end
 end
