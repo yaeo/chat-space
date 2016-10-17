@@ -27,7 +27,7 @@
         .header__group__name= @group.name
         .header__group__members Members: チャットタロウ
       .header__edit
-        =link_to "Edit", edit_group_path(@group.id) 
+        =link_to "Edit", edit_group_path(@group.id)
     %ul.messages
       %li.message
         - @messages.each do |message|
@@ -57,4 +57,5 @@
             %label.image
               = fa_icon "image"
               = f.file_field :image, class: "message-input__image"
+            =f.hidden_field :group_id, value: params[:id]
           = f.submit value: "Send", class: "message-submit", data: {disable_with: "Send"}
