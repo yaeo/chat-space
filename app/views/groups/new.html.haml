@@ -1,0 +1,27 @@
+.chat-group-form
+  %h1 新規チャットグループ
+  =form_for @group, class: "new_chat_group", id: "new_chat_group" do |f|
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        =f.label :name, "グループ名", class: "chat-group-form__label"
+      .chat-group-form__field--right
+        =f.text_field :name, class:"chat-group-form__input", id: "chat_group_name", placeholder: "グループ名を入力してください"
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        =f.label :name, "チャットメンバーを追加", class: "chat-group-form__label"
+      .chat-group-form__field--right
+        .chat-group-form__search.clearfix
+          =f.text_field :name, class:"chat-group-form__input", id: "user-search-field", placeholder: "追加したいユーザー名を入力してください"
+        #user-search-result
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        =f.label :name, "チャットメンバー", class: "chat-group-form__label"
+      .chat-group-form__field--right
+        #chat-group-users
+          #chat-group-user-22.chat-group-user.clearfix
+            %input{:name => "chat_group[user_ids][]", :type => "hidden", :value => "22"}/
+            %p.chat-group-user__name seo_kyohei
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+      .chat-group-form__field--right
+        =f.submit value: "Save", class: "chat-group-form__action-btn"
