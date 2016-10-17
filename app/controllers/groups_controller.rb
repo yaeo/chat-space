@@ -4,9 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def new
-    # users = User.all
     @group = Group.new
-    @group.members.build
   end
 
   def create
