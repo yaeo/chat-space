@@ -1,0 +1,55 @@
+.chat
+  - if flash[:errors].present?
+    .flash-error
+      - flash[:errors].each do |msg|
+        %p.error= msg
+  - if flash[:success].present?
+    .flash-success
+      %p.success= flash[:success]
+  .sidemenu
+    .user
+      .user__name= current_user.name
+      .user__edit
+        =link_to new_group_path do
+          =fa_icon "edit"
+        -# 暫定的に設定ボタンをログアウトボタンにしている
+        =link_to edit_user_path(current_user) do
+          =fa_icon "cog"
+    %ul.groups
+      - @groups.each do |group|
+        %li.group
+          = link_to group_path(group.group), class: "group-link" do
+            %p.group__name= group.group.name
+            %p.group__message= group.group.messages.last.body
+  .main
+    .header.clearfix
+      .header__group
+        .header__group__name チャットスペース
+        .header__group__members Members: チャットタロウ
+      .header__edit
+        %a{href: "#"}Edit
+    %ul.messages
+      %li.message
+        .message__header.clearfix
+          .message__header__name チャットタロウ
+          .message__header__date 16/10/02 06:24:11
+        .message__body 抹茶がすき
+      %li.message
+        .message__header.clearfix
+          .message__header__name ジロウ
+          .message__header__date 16/10/02 06:24:11
+        .message__body 紅茶がすきです
+      %li.message
+        .message__header.clearfix
+          .message__header__name サブロウ
+          .message__header__date 16/10/02 06:24:11
+        .message__body 好きなお茶は？
+    .footer
+      .footer__chat
+        = form_for(@message, html: {class: "message-form clearfix"}, method: "post") do |f|
+          .message-input
+            = f.text_area :body, class: "message-input__text"
+            %label.image
+              = fa_icon "image"
+              = f.file_field :image, class: "message-input__image"
+          = f.submit value: "Send", class: "message-submit", data: {disable_with: "Send"}

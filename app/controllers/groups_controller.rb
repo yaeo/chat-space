@@ -4,6 +4,11 @@ class GroupsController < ApplicationController
     @groups = Member.where(user_id: current_user.id)
   end
 
+  def show
+    @message = Message.new
+    @groups = Member.where(user_id: current_user.id)
+  end
+
   def new
     @group = Group.new
   end
