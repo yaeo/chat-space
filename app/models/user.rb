@@ -5,4 +5,5 @@ class User < ApplicationRecord
   #association
   has_many :groups, through: :members, source: :group
   has_many :members
+  accepts_nested_attributes_for :members
 end
