@@ -16,15 +16,10 @@
         =link_to edit_user_path(current_user) do
           =fa_icon "cog"
     %ul.groups
-      %li.group
-        .group__name チャットスペース
-        .group__message 最新の投稿です
-      %li.group
-        .group__name ムービーーアップ
-        .group__message 最新の投稿です
-      %li.group
-        .group__name ピクツイーート
-        .group__message 最新の投稿です
+      - @groups.each do |group|
+        %li.group
+          .group__name= group.group.name
+          .group__message 最新の投稿です
   .main
     .header.clearfix
       .header__group
