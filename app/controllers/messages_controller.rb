@@ -1,13 +1,15 @@
 class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
-    if @message.save
-      #メッセージの保存に成功したときの処理
-      redirect_to group_url(params[:message][:group_id])
-    else
-      #メッセージの保存に失敗したときの処理
-      flash[:errors] = @message.errors.full_messages
-      redirect_to root_path
+    current_group = Group.find(@message.group_id)
+    respond_to do |format|
+      if @message.save
+       format.html { redirect_to group_url(current_group)}
+        format.js
+      else
+        flash[:errors] = @message.errors.full_messages
+        format.html { redirect_to root_url }
+      end
     end
   end
 

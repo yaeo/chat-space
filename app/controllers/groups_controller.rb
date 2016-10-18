@@ -44,6 +44,5 @@ class GroupsController < ApplicationController
 
     def group_params
        params.require(:group).permit(:name, :user_ids => [])
-      #  binding.pry
     end
 end

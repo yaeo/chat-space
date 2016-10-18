@@ -30,7 +30,7 @@
       .header__edit
         =link_to "Edit", edit_group_path(@group.id)
     %ul.messages
-      %li.message
+      %li#ajax.message
         - @messages.each do |message|
           .message__header.clearfix
             .message__header__name= message.user.name
@@ -52,7 +52,7 @@
       -#   .message__body 好きなお茶は？
     .footer
       .footer__chat
-        = form_for(@message, html: {class: "message-form clearfix"}, method: "post") do |f|
+        = form_for(@message, html: {class: "message-form clearfix", id: "message-form"}, remote: true, method: "post") do |f|
           .message-input
             = f.text_area :body, class: "message-input__text"
             %label.image
