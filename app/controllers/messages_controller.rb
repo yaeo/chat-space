@@ -1,18 +1,24 @@
 class MessagesController < ApplicationController
   def create
-    @message = Message.new(create_message_params)
-    if @message.save
-      #メッセージの保存に成功したときの処理
-      redirect_to root_path
-    else
-      #メッセージの保存に失敗したときの処理
-      flash[:errors] = @message.errors.full_messages
-      redirect_to root_path
+    @message = Message.new(message_params)
+    current_group = Group.find(@message.group_id)
+    respond_to do |format|
+      if @message.save
+        format.html { redirect_to group_url(current_group)}
+        format.json { render json: {
+          name: @message.user.name,
+          date: @message.created_at.strftime('%Y年%m月%d日 %H:%M'),
+          body: @message.body, }
+        }
+      else
+        flash[:errors] = @message.errors.full_messages
+        format.html { redirect_to root_url }
+      end
     end
   end
 
   private
-    def create_message_params
-      params.require(:message).permit(:body)
+    def message_params
+      params.require(:message).permit(:body, :group_id).merge(user_id: current_user.id)
     end
 end

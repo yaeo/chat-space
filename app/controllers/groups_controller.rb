@@ -1,6 +1,13 @@
 class GroupsController < ApplicationController
   def index
+    @groups = Member.where(user_id: current_user.id)
+  end
+
+  def show
     @message = Message.new
+    @group = Group.find(params[:id])
+    @paticipate_groups = Member.where(user_id: current_user.id)
+    @messages = Message.where(group_id: params[:id])
   end
 
   def new
@@ -37,6 +44,5 @@ class GroupsController < ApplicationController
 
     def group_params
        params.require(:group).permit(:name, :user_ids => [])
-      #  binding.pry
     end
 end

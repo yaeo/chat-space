@@ -88,11 +88,19 @@ a {
     background-color: #2f3e51;
     .group {
       padding: 20px 0px;
-      &__name {
-        font-size: 15px;
+      a.group-link:hover {
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        background-color: blue;
       }
-      &__message {
+      p.group__name {
+        font-size: 15px;
+        color: #fff;
+      }
+      p.group__message {
         font-size: 11px;
+        color: #fff;
       }
     }
   }
@@ -140,6 +148,7 @@ a {
     background-color: #eee;
     height: calc(100% - 190px);
     position: relative;
+    overflow-y: scroll;
     .message {
       padding-bottom:  40px;
       &__header {

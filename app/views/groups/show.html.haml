@@ -1,0 +1,48 @@
+.chat
+  - if flash[:errors].present?
+    .flash-error
+      - flash[:errors].each do |msg|
+        %p.error= msg
+  - if flash[:success].present?
+    .flash-success
+      %p.success= flash[:success]
+  .sidemenu
+    .user
+      .user__name= current_user.name
+      .user__edit
+        =link_to new_group_path do
+          =fa_icon "edit"
+        -# 暫定的に設定ボタンをログアウトボタンにしている
+        =link_to edit_user_path(current_user) do
+          =fa_icon "cog"
+    %ul.groups
+      - @paticipate_groups.each do |group|
+        %li.group
+          = link_to group_path(group.group), class: "group-link" do
+            %p.group__name= group.group.name
+            - if group.group.messages.last.present?
+              %p.group__message= group.group.messages.last.body
+  .main
+    .header.clearfix
+      .header__group
+        .header__group__name= @group.name
+        .header__group__members Members: チャットタロウ
+      .header__edit
+        =link_to "Edit", edit_group_path(@group.id)
+    %ul.messages
+      %li#ajax.message
+        - @messages.each do |message|
+          .message__header.clearfix
+            .message__header__name= message.user.name
+            .message__header__date= message.created_at.strftime('%Y年%m月%d日 %H:%M')
+          .message__body= message.body
+    .footer
+      .footer__chat
+        = form_for(@message, html: {class: "message-form clearfix", id: "message-form"}, method: "post") do |f|
+          .message-input
+            = f.text_area :body, class: "message-input__text"
+            %label.image
+              = fa_icon "image"
+              = f.file_field :image, class: "message-input__image"
+            =f.hidden_field :group_id, value: params[:id]
+          = f.submit value: "Send", class: "message-submit", data: {disable_with: "Send"}

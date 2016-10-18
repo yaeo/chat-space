@@ -4,6 +4,4 @@ class Member < ApplicationRecord
   belongs_to :group
 
   #validation
-  validates :user_id, presence: true
-  validates :group_id, presence: true
 end
