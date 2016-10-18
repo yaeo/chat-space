@@ -4,8 +4,11 @@ class MessagesController < ApplicationController
     current_group = Group.find(@message.group_id)
     respond_to do |format|
       if @message.save
-       format.html { redirect_to group_url(current_group)}
-        format.js
+        format.html { redirect_to group_url(current_group)}
+        format.json { render json: { name: @message.user.name,
+          date: @message.created_at,
+          body: @message.body, }
+        }
       else
         flash[:errors] = @message.errors.full_messages
         format.html { redirect_to root_url }

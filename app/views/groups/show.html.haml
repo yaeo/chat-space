@@ -36,23 +36,9 @@
             .message__header__name= message.user.name
             .message__header__date= message.created_at
           .message__body= message.body
-      -#   .message__header.clearfix
-      -#     .message__header__name チャットタロウ
-      -#     .message__header__date 16/10/02 06:24:11
-      -#   .message__body 抹茶がすき
-      -# %li.message
-      -#   .message__header.clearfix
-      -#     .message__header__name ジロウ
-      -#     .message__header__date 16/10/02 06:24:11
-      -#   .message__body 紅茶がすきです
-      -# %li.message
-      -#   .message__header.clearfix
-      -#     .message__header__name サブロウ
-      -#     .message__header__date 16/10/02 06:24:11
-      -#   .message__body 好きなお茶は？
     .footer
       .footer__chat
-        = form_for(@message, html: {class: "message-form clearfix", id: "message-form"}, remote: true, method: "post") do |f|
+        = form_for(@message, html: {class: "message-form clearfix", id: "message-form"}, method: "post") do |f|
           .message-input
             = f.text_area :body, class: "message-input__text"
             %label.image
