@@ -5,8 +5,9 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         format.html { redirect_to group_url(current_group)}
-        format.json { render json: { name: @message.user.name,
-          date: @message.created_at,
+        format.json { render json: {
+          name: @message.user.name,
+          date: @message.created_at.strftime('%Y年%m月%d日 %H:%M'),
           body: @message.body, }
         }
       else

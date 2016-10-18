@@ -34,7 +34,7 @@
         - @messages.each do |message|
           .message__header.clearfix
             .message__header__name= message.user.name
-            .message__header__date= message.created_at
+            .message__header__date= message.created_at.strftime('%Y年%m月%d日 %H:%M')
           .message__body= message.body
     .footer
       .footer__chat
