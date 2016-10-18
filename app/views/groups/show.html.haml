@@ -20,7 +20,8 @@
         %li.group
           = link_to group_path(group.group), class: "group-link" do
             %p.group__name= group.group.name
-            %p.group__message= group.group.messages.last.body
+            - if group.group.messages.last.present?
+              %p.group__message= group.group.messages.last.body
   .main
     .header.clearfix
       .header__group
