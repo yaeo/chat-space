@@ -1,3 +1,9 @@
+// jsonで飛んできたメッセージのhtmlを生成して追加する
+function insertHtml(data) {
+  var html = "<div class= 'message__header clearfix'><div class='message__header__name'>"+data.name+"</div><div class='message__header__date'>"+data.date+"</div></div><div class='message__body'>"+data.body+"</div>";
+  $('#ajax').append(html);
+};
+
 $(function() {
   $('#message-form').on('submit', function(e) {
       e.preventDefault();
@@ -11,8 +17,9 @@ $(function() {
             group_id: $(this).find('#message_group_id').prop('value'),
           }
         }
-      }).done(function(data) {
-        $('#ajax').append("<div class= 'message__header clearfix'><div class='message__header__name'>"+data.name+"</div><div class='message__header__date'>"+data.date+"</div></div><div class='message__body'>"+data.body+"</div>");
+      })
+      .done(function(data) {
+        insertHtml(data);
       })
       .fail(function() {
       });
