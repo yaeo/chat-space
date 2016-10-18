@@ -22,7 +22,6 @@
             %p.group__name= group.group.name
             - if group.group.messages.last.present?
               %p.group__message= group.group.messages.last.body
-
   .main
     .header.clearfix
       .header__group
@@ -34,22 +33,4 @@
           .message__header__name
           .message__header__date
         .message__body
-      -# %li.message
-      -#   .message__header.clearfix
-      -#     .message__header__name ジロウ
-      -#     .message__header__date 16/10/02 06:24:11
-      -#   .message__body 紅茶がすきです
-      -# %li.message
-      -#   .message__header.clearfix
-      -#     .message__header__name サブロウ
-      -#     .message__header__date 16/10/02 06:24:11
-      -#   .message__body 好きなお茶は？s
     .footer
-      -# .footer__chat
-      -#   = form_for(@message, html: {class: "message-form clearfix"}, method: "post") do |f|
-      -#     .message-input
-      -#       = f.text_area :body, class: "message-input__text"
-      -#       %label.image
-      -#         = fa_icon "image"
-      -#         = f.file_field :image, class: "message-input__image"
-      -#     = f.submit value: "Send", class: "message-submit", data: {disable_with: "Send"}
