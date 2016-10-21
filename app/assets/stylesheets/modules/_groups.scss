@@ -169,6 +169,10 @@ a {
         margin-top: 10px;
         font-size: 14px;
         color: #434A54;
+        img {
+          max-width: 300px;
+          max-height: 300px;
+        }
       }
     }
   }
