@@ -15,11 +15,8 @@
         =f.label :name, "チャットメンバーを追加", class: "chat-group-form__label"
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
+        =text_field :keyword, :keyword, class: "chat-group-form__input"
         #user-search-result
-          -@users.each do |user|
-            .chat-group-user.clearfix
-              %p.chat-group-user__name= user.name
-              %a.user-search-add.chat-group-user__btn.chat-group-user__btn--add{data:{user_id: user.id, user_name: user.name}, id: "add-user-" + user.name} 追加
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         =f.label :member, "チャットメンバー", class: "chat-group-form__label"
