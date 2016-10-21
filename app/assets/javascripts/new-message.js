@@ -25,9 +25,6 @@ $(function() {
         type: 'POST',
         datatype: 'json',
         data:  formData,
-            // body: $(this).find('#message_body').prop('value'),
-            // image: $(this).find('#message_image').prop('value'),
-            // group_id: $(this).find('#message_group_id').prop('value'),
         processData: false,
         contentType: false
       })
