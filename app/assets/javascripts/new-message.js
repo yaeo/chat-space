@@ -15,7 +15,7 @@ function insertHtml(data) {
 $(function() {
   $('#message-form').on('submit', function(e) {
       e.preventDefault();
-      var form = $('#message-form').get()[0];
+      var form = $(this).get()[0];
 
       var formData = new FormData(form);
 
