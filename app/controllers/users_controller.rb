@@ -13,7 +13,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    # @hoge = User.where('name LIKE ?', "%#{params[:name]}%")
     @searched_user = User.where('name LIKE ?', "%#{params[:name]}%")
     if @searched_user.present?
       render json: @searched_user
