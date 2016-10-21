@@ -41,9 +41,9 @@
       .footer__chat
         = form_for(@message, html: {class: "message-form clearfix", id: "message-form"}, method: "post") do |f|
           .message-input
-            = f.text_area :body, class: "message-input__text"
+            = f.text_area :body, class: "message-input__text", id: "message_body"
             %label.image
               = fa_icon "image"
-              = f.file_field :image, class: "message-input__image"
+              = f.file_field :image, class: "message-input__image", id: "message_image"
             =f.hidden_field :group_id, value: params[:id]
           = f.submit value: "Send", class: "message-submit", data: {disable_with: "Send"}
