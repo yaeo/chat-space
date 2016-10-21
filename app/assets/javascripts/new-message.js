@@ -1,13 +1,23 @@
 // jsonで飛んできたメッセージのhtmlを生成して追加する
 function insertHtml(data) {
-  var html = "<div class= 'message__header clearfix'>\
-                <div class='message__header__name'>"+data.name+"</div>\
-                <div class='message__header__date'>"+data.date+"</div>\
-              </div>\
-              <div class='message__body'>\
-                <p>"+data.body+"</p>\
-                <img src="+data.image.url+"/>\
-              </div>";
+  if(data.image == null){
+    var html = "<div class= 'message__header clearfix'>\
+                  <div class='message__header__name'>"+data.name+"</div>\
+                  <div class='message__header__date'>"+data.date+"</div>\
+                </div>\
+                <div class='message__body'>\
+                  <p>"+data.body+"</p>\
+                </div>";
+  } else {
+    var html = "<div class= 'message__header clearfix'>\
+                  <div class='message__header__name'>"+data.name+"</div>\
+                  <div class='message__header__date'>"+data.date+"</div>\
+                </div>\
+                <div class='message__body'>\
+                  <p>"+data.body+"</p>\
+                  <img src="+data.image+"/>\
+                </div>";
+  }
 
   $('#ajax').append(html);
 };
