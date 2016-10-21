@@ -16,13 +16,6 @@ $(function(){
   });
 });
 
-// $(function() {
-//   $('#group-user').on('click', '.chat-group-user', function(e) {
-//     e.preventDefault();
-//     $(this).remove();
-//   });
-// )};
-
 // ユーザーのインクリメントサーチ
 $(function() {
   var list = $("#user-search-result");
