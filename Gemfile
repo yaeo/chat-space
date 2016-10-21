@@ -39,7 +39,7 @@ gem 'devise'
 
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 
-gem 'fog-aws'
+gem 'fog'
 
 
 # Use ActiveModel has_secure_password
