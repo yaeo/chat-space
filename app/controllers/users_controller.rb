@@ -12,6 +12,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @searched_user = User.where('name LIKE ?', "%#{params[:name]}%")
+    if @searched_user.present?
+      render json: @searched_user
+    else
+    end
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password)

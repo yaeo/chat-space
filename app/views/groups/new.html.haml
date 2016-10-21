@@ -15,7 +15,16 @@
         =f.label :name, "チャットメンバーを追加", class: "chat-group-form__label"
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
-          =f.collection_check_boxes(:user_ids, User.all, :id, :name)
+        =text_field :keyword, :keyword, class: "chat-group-form__input"
+        #user-search-result
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        =f.label :member, "チャットメンバー", class: "chat-group-form__label"
+      .chat-group-form__field--right
+        #group-user
+          .chat-group-user.clearfix
+            =f.hidden_field :user_ids, :multiple => true, value: current_user.id
+            %p.chat-group-user__name= current_user.name
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
