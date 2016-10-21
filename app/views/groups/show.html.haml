@@ -1,8 +1,9 @@
 .chat
   - if flash[:errors].present?
     .flash-error
-      - flash[:errors].each do |msg|
-        %p.error= msg
+      - flash[:errors].each do |key, msg|
+        - msg.each do |val|
+          %p.error= val
   - if flash[:success].present?
     .flash-success
       %p.success= flash[:success]

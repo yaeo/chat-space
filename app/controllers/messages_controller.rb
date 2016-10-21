@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to group_url(current_group)}
         format.json { render json: @message }
       else
-        flash[:errors] = @message.errors.full_messages
+        flash[:errors] = @message.errors.messages
         format.html { redirect_to group_url(current_group) }
         format.json { redirect_to group_url(current_group) }
       end
