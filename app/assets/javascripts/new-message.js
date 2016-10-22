@@ -15,7 +15,7 @@ function insertHtml(data) {
                 </div>\
                 <div class='message__body'>\
                   <p>"+data.body+"</p>\
-                  <img src="+data.image+"/>\
+                  <img src="+data.image+">\
                 </div>";
   }
 
