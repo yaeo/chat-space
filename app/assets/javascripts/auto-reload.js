@@ -1,7 +1,7 @@
 // ajaxを投げて、グループの全メッセージを取得してくる
 $(function(){
-  var groupName = $('.header__group__name').text();
   setInterval (function(){
+    var groupName = $('#group-name').text();
     $.ajax({
         url: 'http://localhost:3000/groups.json',
         type: 'GET',
@@ -46,5 +46,5 @@ $(function(){
 
     });
   // 1000ms毎にajaxを投げてjsonを取得
-}, 1000);
+}, 5000);
 });
