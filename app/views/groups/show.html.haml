@@ -15,7 +15,7 @@
           =fa_icon "edit"
         =link_to edit_user_path(current_user) do
           =fa_icon "cog"
-    %ul.groups
+    %ul.groups#sidemenu-groups
       - @paticipate_groups.each do |group|
         %li.group
           = link_to group_path(group.group), class: "group-link" do
@@ -25,7 +25,7 @@
   .main
     .header.clearfix
       .header__group
-        .header__group__name= @group.name
+        .header__group__name#group-name= @group.name
         .header__group__members Members: チャットタロウ
       .header__edit
         =link_to "Edit", edit_group_path(@group.id)

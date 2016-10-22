@@ -1,6 +1,12 @@
 class GroupsController < ApplicationController
   def index
     @groups = Member.where(user_id: current_user.id)
+    group_id = Group.where(name: params[:group_name])
+    @messages = Message.where(group_id: group_id)
+    respond_to do |format|
+      format.html {  }
+      format.json { render json: @messages.to_json(include: {:user => {only: :name}}) }
+    end
   end
 
   def show
