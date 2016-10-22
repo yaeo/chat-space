@@ -1,5 +1,5 @@
 // 日付をフォーマットするファンクション
-function formData(message) {
+function formatData(message) {
   // created_atをファーマット
   message.created_at = message.created_at.replace(/-/, "年");
   message.created_at = message.created_at.replace(/-/, "月");
@@ -51,7 +51,7 @@ $(function(){
     .done(function(messages) {
       $('#ajax').empty();
       $.each(messages, function(index, message){
-        formData(message);
+        formatData(message);
         appendHtml(message);
       });
     })
