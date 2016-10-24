@@ -57,6 +57,10 @@ gem 'config'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -69,4 +73,8 @@ end
 
 group :test do
   gem 'faker'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
